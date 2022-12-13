@@ -1,7 +1,11 @@
 import React from "react";
 import style from "../Welcome/WelcomePage.module.css";
 
-export default function WelcomePage() {
+export default function WelcomePage({ gameStarted, setGameStarted }) {
+  const changeGameStartScreen = () => {
+    setGameStarted(true);
+  };
+
   return (
     <div className={style.flexboxContiner}>
       <h1>Welcome To Battle Ship Game </h1>
@@ -11,7 +15,9 @@ export default function WelcomePage() {
         ships are by choosing a tile on the opposing board. Try to sink all
         their battleships to win the game.
       </p>
-      <button className={style.startButton}>Im Ready To Start</button>
+      <button onClick={changeGameStartScreen} className={style.startButton}>
+        Im Ready To Start
+      </button>
     </div>
   );
 }
