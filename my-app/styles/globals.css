@@ -126,5 +126,8 @@ a {
 
 
 
-
-
+.battle-board-container {
+ text-align: center;
+ margin-left: 7%;
+ padding: 10px;
+}

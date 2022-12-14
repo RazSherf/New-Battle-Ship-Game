@@ -5,12 +5,24 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import style from "../FormComponent/Form.module.css";
-export default function Form({ isSizeSelected, setIsSizeSelected }) {
-  const [boardSize, setBoardSize] = useState();
+export default function Form({ onBoardSizeClick }) {
+  const [boatSize, setBoazSize] = useState();
+
+  const getShipSize = (event) => {
+    let boatSize = event.target.value;
+    setBoazSize(boatSize);
+    if (boatSize == 3) {
+      alert(boatSize);
+    } else if (boatSize == 4) {
+      alert(boatSize);
+    }
+    console.log(boatSize);
+  };
+
   const getBoardSize = (event) => {
     let boardSize = event.target.value;
-    setBoardSize(boardSize);
-    setIsSizeSelected(true);
+    onBoardSizeClick(boardSize);
+    console.log(boardSize);
   };
   return (
     <div className={style.formContiner}>
@@ -42,6 +54,18 @@ export default function Form({ isSizeSelected, setIsSizeSelected }) {
             label="12X12"
           />
         </RadioGroup>
+        <div>
+          <h2>Click To Place Battle Ship Size</h2>
+          <button onClick={getShipSize} value={3} className={style.button}>
+            Cruiser(3)
+          </button>
+          <button onClick={getShipSize} value={4} className={style.button}>
+            Battleship(4)
+          </button>
+          <button onClick={getShipSize} value={5} className={style.button}>
+            Carries(5)
+          </button>
+        </div>
       </FormControl>
     </div>
   );

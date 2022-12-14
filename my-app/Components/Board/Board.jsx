@@ -2,10 +2,10 @@ import { useState } from "react";
 import style from "../Board/Board.module.css";
 import Square from "../Square/Square";
 
-export default function Board() {
+export default function Board({ boardSize }) {
   let column = [];
   let rows = [];
-  let size = 11;
+  let size = boardSize;
 
   if (size == 10) {
     column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -28,7 +28,7 @@ export default function Board() {
         <div className="row-letter-container" key={row}>
           <span className="row-letter">{row}</span>
           {column.map((column, index) => {
-            return <Square />;
+            return <Square row={row} coulmn={column} />;
           })}
         </div>
       ))}
