@@ -5,12 +5,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import style from "../FormComponent/Form.module.css";
-export default function Form() {
+export default function Form({ isSizeSelected, setIsSizeSelected }) {
   const [boardSize, setBoardSize] = useState();
   const getBoardSize = (event) => {
     let boardSize = event.target.value;
     setBoardSize(boardSize);
-    console.log(boardSize);
+    setIsSizeSelected(true);
   };
   return (
     <div className={style.formContiner}>
@@ -43,7 +43,6 @@ export default function Form() {
           />
         </RadioGroup>
       </FormControl>
-      ;
     </div>
   );
 }

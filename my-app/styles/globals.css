@@ -24,3 +24,107 @@ a {
     background: black;
   }
 }
+
+.turn{
+  text-align: center;
+  font-family: sans-serif;
+  margin-right: 35px;
+}
+.battle-board-container {
+  display:inline-block
+}
+
+.columns-number-container {
+  display: flex;
+  padding-left: 17px;
+  padding-right: 100px;
+}
+
+.columns-number {
+  width: 51px;
+}
+
+.row-letter-container {
+  display: flex;
+}
+
+.row-letter {
+  width: 22px;
+  height: 50px;
+  display: flex;
+  align-items:center;
+}
+
+.columns-square {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(0, 0, 0);
+  
+  
+  
+}
+
+.columns-square2{
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(14, 14, 17);
+  
+  
+}
+
+.columns-square3{
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(14, 14, 17);
+  background-color: #04a317eb
+  
+  
+}
+.columns-square4{
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(14, 14, 17);
+  background-color: #e10202eb
+
+}
+.main{
+  text-align: center;
+}
+
+
+.buttenDiv{
+  text-align: center;
+  padding: 50px;
+}
+
+.button {
+  background-color: #0000ff; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:16px;
+  margin-right: 55px;
+}
+
+
+
+.button_start{
+  background-color: #0ea158; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size:16px;
+  margin-right: 55px;
+}
+
+
+
+
+
+

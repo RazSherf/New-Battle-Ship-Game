@@ -5,6 +5,7 @@ import Form from "../Components/FormComponent/Form";
 import React, { useState } from "react";
 export default function Home() {
   const [gameStarted, setGameStarted] = useState(false);
+  const [isSizeSelected, setIsSizeSelected] = useState(false);
   return (
     <div className={styles.flexboxContiner}>
       {!gameStarted ? (
@@ -15,9 +16,18 @@ export default function Home() {
           />
         </>
       ) : (
-        <>
-          <Form />
-        </>
+        <div>
+          <Form
+            isSizeSelected={isSizeSelected}
+            setIsSizeSelected={setIsSizeSelected}
+          />
+          {isSizeSelected && (
+            <>
+              <Board />
+              {/* <Board /> */}
+            </>
+          )}
+        </div>
       )}
     </div>
   );
