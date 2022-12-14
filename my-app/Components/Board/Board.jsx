@@ -15,6 +15,10 @@ export default function Board({ boardSize }) {
     column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
   }
+  if (size == 12) {
+    column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+  }
   return (
     <div className="battle-board-container">
       <div className="columns-number-container">
