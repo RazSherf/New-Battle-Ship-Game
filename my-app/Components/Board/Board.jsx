@@ -1,9 +1,5 @@
-import React from "react";
+import * as React from "react";
 
 export default function Board() {
-  return (
-    <div>
-      <p>Board Place Save</p>
-    </div>
-  );
+  return <div className={continer}></div>;
 }
