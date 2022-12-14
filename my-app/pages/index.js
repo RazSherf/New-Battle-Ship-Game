@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 import WelcomePage from "../Components/Welcome/WelcomePage";
 import Board from "../Components/Board/Board";
+import Form from "../Components/FormComponent/Form";
 import React, { useState } from "react";
 export default function Home() {
   const [gameStarted, setGameStarted] = useState(false);
@@ -15,7 +16,7 @@ export default function Home() {
         </>
       ) : (
         <>
-          <Board />
+          <Form />
         </>
       )}
     </div>
