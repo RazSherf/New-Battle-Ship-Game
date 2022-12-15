@@ -5,12 +5,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import style from "../FormComponent/Form.module.css";
-export default function Form({ isSizeSelected, setIsSizeSelected }) {
-  const [boardSize, setBoardSize] = useState();
+export default function Form({ onBoardSizeClick }) {
   const getBoardSize = (event) => {
     let boardSize = event.target.value;
-    setBoardSize(boardSize);
-    setIsSizeSelected(true);
+    onBoardSizeClick(boardSize);
   };
   return (
     <div className={style.formContiner}>

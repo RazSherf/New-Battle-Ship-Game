@@ -1,6 +1,21 @@
 .formContiner{
-    padding: 10px;
+    padding:1px;
     margin-top: 15px;
     display: flex;
-  justify-content: center;
+    justify-content: center;
+    
+}
+
+.shipContiner{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.t{
+    
+    display: flex;
+    justify-content: center;
 }
