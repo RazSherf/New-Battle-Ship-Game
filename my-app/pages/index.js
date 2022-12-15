@@ -23,20 +23,18 @@ export default function Home() {
   return (
     <div className={styles.flexboxContiner}>
       {!gameStarted ? (
-        <>
-          <WelcomePage
-            gameStarted={gameStarted}
-            setGameStarted={setGameStarted}
-          />
-        </>
+        <WelcomePage
+          gameStarted={gameStarted}
+          setGameStarted={setGameStarted}
+        />
       ) : (
-        <div>
+        <div className={style.t1}>
           <Form onBoardSizeClick={onBoardSizeClick} />
           {boardSize !== null && boardSize !== undefined && (
-            <>
+            <div className={style.t1}>
               <ShipList onShipSizeClick={onShipSizeClick} />
               <Board boardSize={boardSize} />
-            </>
+            </div>
           )}
         </div>
       )}

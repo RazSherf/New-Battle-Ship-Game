@@ -1,15 +1,28 @@
 .continer{
     display: flex;
     justify-content: center;
-    
+    flex-direction: column;
+    margin: 25px 0;
 }
+
 .button{
     background-color:rgba(25, 188, 185, 0.348);
     font-size: 30px;
     text-align: center;
     margin-right: 20px;
     padding: 10px;
-    margin: auto;
+    margin: 10px;
     margin-bottom: 15;
-    
+}
+
+.buttonCon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.headline{
+    text-align: center;
+    margin: 0;
 }
