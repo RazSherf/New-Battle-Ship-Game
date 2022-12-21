@@ -58,35 +58,18 @@ a {
 .columns-square {
   width: 50px;
   height: 50px;
-  border: 2px solid rgb(0, 0, 0);
-  
-  
-  
+  border: 2px solid rgb(110, 92, 92);
+  /* background-color: rgba(203, 225, 239, 0.314); */
 }
 
-.columns-square2{
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgb(14, 14, 17);
-  
-  
+.initial-state-square {
+  background-color: rgba(203, 225, 239, 0.314);
 }
 
-.columns-square3{
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgb(14, 14, 17);
-  background-color: #04a317eb
-  
-  
+.hover-square {
+  background-color: green;
 }
-.columns-square4{
-  width: 50px;
-  height: 50px;
-  border: 2px solid rgb(14, 14, 17);
-  background-color: #e10202eb
 
-}
 .main{
   text-align: center;
 }
@@ -131,3 +114,4 @@ a {
  margin-left: 7%;
  padding: 10px;
 }
+
