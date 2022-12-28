@@ -4,20 +4,16 @@ export default function Square({
   column,
   handleSquareHover,
   isSquareHoverd,
-  gameState,
+  color,
+  changeHoverColor,
+  setColor,
 }) {
-  const childFunction = () => {
-    handleSquareHover(row, column);
-    if (gameState === 0) {
-      setColor("columns-square hover-square");
-    }
-  };
-  const [color, setColor] = useState("columns-square initial-state-square");
-
   return (
     <div
       className={color}
-      onMouseEnter={childFunction}
+      onMouseEnter={() => {
+        changeHoverColor(row, column);
+      }}
       onMouseLeave={() => {
         setColor("columns-square initial-state-square");
       }}
