@@ -15,6 +15,9 @@ export default function Home() {
   // 0 stand for place ship 1 for attack ship 2 fot end game
   const [gameState, setGameState] = useState(1);
 
+  let currentPlayer1 = "Raz";
+  let currentPlayer2 = "Computer";
+
   // Saving the board size in the state
   const onBoardSizeClick = (boardSize) => {
     console.log("The Selected Size is:", boardSize);
@@ -43,12 +46,22 @@ export default function Home() {
           {boardSize !== null && boardSize !== undefined && (
             <div className={style.t1}>
               <ShipList onShipSizeClick={onShipSizeClick} boatSize={boatSize} />
-              <Board
-                boardSize={boardSize}
-                handleSquareHover={handleSquareHover}
-                squareHoverd={squareHoverd}
-                gameState={gameState}
-              />
+              <div className={style.boardCss}>
+                <Board
+                  boardSize={boardSize}
+                  handleSquareHover={handleSquareHover}
+                  squareHoverd={squareHoverd}
+                  gameState={gameState}
+                  currentPlayer={currentPlayer1}
+                />
+                <Board
+                  boardSize={boardSize}
+                  handleSquareHover={handleSquareHover}
+                  squareHoverd={squareHoverd}
+                  gameState={gameState}
+                  currentPlayer={currentPlayer2}
+                />
+              </div>
             </div>
           )}
         </div>

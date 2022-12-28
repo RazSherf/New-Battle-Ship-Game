@@ -7,10 +7,15 @@ export default function Board({
   handleSquareHover,
   squareHoverd,
   gameState,
+  currentPlayer,
 }) {
   let column = [];
   let rows = [];
   let size = boardSize;
+
+  const [arr, setArr] = useState(
+    new Array(boardSize).fill(new Array(boardSize).fill(0))
+  );
 
   const checkisHoverSquare = (row, column) => {};
 
@@ -34,6 +39,9 @@ export default function Board({
 
   return (
     <div className="battle-board-container" onMouseEnter={handle()}>
+      <div className={style.headline}>
+        <h1>The Current player is: {currentPlayer}</h1>;
+      </div>
       <div className="columns-number-container">
         {column.map((column) => (
           <div className="columns-number" key={column}>

@@ -1,7 +1,8 @@
 .flexboxContiner{
   display:flex;
-  justify-content:center;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   
  
 }
@@ -13,8 +14,12 @@
 
 }
 
-.t1{
+/* .t1{
   display:flex;
-  justify-content:center;
-  align-items: center;
-}
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
+/* .boardCss{
+
+} */

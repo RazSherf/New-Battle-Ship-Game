@@ -41,7 +41,7 @@ a {
 }
 
 .columns-number {
-  width: 51px;
+  width: 50px;
 }
 
 .row-letter-container {
@@ -110,8 +110,10 @@ a {
 
 
 .battle-board-container {
- text-align: center;
- margin-left: 7%;
- padding: 10px;
+  text-align: center;
+  margin-left: -0.4%;  
+  
+
+ 
 }
 
