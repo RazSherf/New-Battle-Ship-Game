@@ -12,9 +12,7 @@ export default function Home() {
   const [boardSize, setBoardSize] = useState(null);
   const [boatSize, setBoazSize] = useState();
   const [squareHoverd, setSquareHoverd] = useState([]);
-  // 0 stand for place ship 1 for attack ship 2 fot end game
-  const [gameState, setGameState] = useState(1);
-
+  const [isHorizontal, setIsHorizontal] = useState(true);
   let currentPlayer1 = "Raz";
   let currentPlayer2 = "Computer";
 
@@ -45,23 +43,28 @@ export default function Home() {
           <Form onBoardSizeClick={onBoardSizeClick} />
           {boardSize !== null && boardSize !== undefined && (
             <div className={style.t1}>
-              <ShipList onShipSizeClick={onShipSizeClick} boatSize={boatSize} />
+              <ShipList
+                onShipSizeClick={onShipSizeClick}
+                boatSize={boatSize}
+                isHorizontal={isHorizontal}
+                setIsHorizontal={setIsHorizontal}
+              />
               <div className={style.boardCss}>
                 <Board
                   boardSize={boardSize}
                   handleSquareHover={handleSquareHover}
                   squareHoverd={squareHoverd}
-                  gameState={gameState}
                   currentPlayer={currentPlayer1}
                   boatSize={boatSize}
+                  isHorizontal={isHorizontal}
                 />
                 <Board
                   boardSize={boardSize}
                   handleSquareHover={handleSquareHover}
                   squareHoverd={squareHoverd}
-                  gameState={gameState}
                   currentPlayer={currentPlayer2}
                   boatSize={boatSize}
+                  isHorizontal={isHorizontal}
                 />
 
                 <test />

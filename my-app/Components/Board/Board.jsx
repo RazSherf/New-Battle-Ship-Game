@@ -10,6 +10,7 @@ export default function Board({
   gameState,
   currentPlayer,
   boatSize,
+  isHorizontal,
 }) {
   let column = [];
   let rows = [];
@@ -28,10 +29,18 @@ export default function Board({
 
   const changeHoverColor = (row, column) => {
     const markSquareArray = [];
+    console.log(`hello from board${isHorizontal}`);
     console.log(`Hello from board ${boatSize}`);
-    markSquareArray.push({ row: row, column: column });
-    for (let index = 1; index < boatSize; index++) {
-      markSquareArray.push({ row: row, column: column + index });
+    if (isHorizontal) {
+      markSquareArray.push({ row: row, column: column });
+      for (let index = 1; index < boatSize; index++) {
+        markSquareArray.push({ row: row, column: column + index });
+      }
+    } else {
+      markSquareArray.push({ row: row, column: column });
+      for (let index = 1; index < boatSize; index++) {
+        markSquareArray.push({ row: row + index, column: column });
+      }
     }
     setMarkSquare(markSquareArray);
   };
@@ -55,15 +64,15 @@ export default function Board({
 
   if (size == 10) {
     column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+    rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   }
   if (size == 11) {
     column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-    rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+    rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   }
   if (size == 12) {
     column = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    rows = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+    rows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   }
 
   return (

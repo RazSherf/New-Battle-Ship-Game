@@ -1,6 +1,11 @@
 import { useState } from "react";
 import style from "../ShipList/ShipLIst.module.css";
-export default function ShipList({ onShipSizeClick, boatSize }) {
+export default function ShipList({
+  onShipSizeClick,
+  boatSize,
+  isHorizontal,
+  setIsHorizontal,
+}) {
   const [squareArray, setSquareArray] = useState([]);
   const [isVertical, setIsVertical] = useState(true);
 
@@ -10,9 +15,8 @@ export default function ShipList({ onShipSizeClick, boatSize }) {
   };
 
   const changeDirection = () => {
-    setIsVertical((prevValue) => {
-      return !prevValue;
-    });
+    setIsHorizontal((prevValue) => !prevValue);
+    console.log(isHorizontal);
   };
   return (
     <div className={style.continer}>
@@ -31,7 +35,7 @@ export default function ShipList({ onShipSizeClick, boatSize }) {
       </div>
       <div className={style.buttonCol}>
         <button onClick={changeDirection} className={style.changeButton}>
-          {isVertical
+          {isHorizontal
             ? "Current Direction : Horizontal"
             : "Current Direction : Vertical"}
         </button>
