@@ -7,6 +7,7 @@ export default function Square({
   color,
   changeHoverColor,
   setColor,
+  getOutFromMouseEnter,
 }) {
   return (
     <div
@@ -15,7 +16,7 @@ export default function Square({
         changeHoverColor(row, column);
       }}
       onMouseLeave={() => {
-        setColor("columns-square initial-state-square");
+        getOutFromMouseEnter();
       }}
     >
       <p></p>

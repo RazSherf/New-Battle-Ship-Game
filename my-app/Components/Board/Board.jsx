@@ -9,6 +9,7 @@ export default function Board({
   squareHoverd,
   gameState,
   currentPlayer,
+  boatSize,
 }) {
   let column = [];
   let rows = [];
@@ -24,14 +25,27 @@ export default function Board({
   //   new Array(boardSize).fill(new Array(boardSize).fill(0))
   // );
   const [color, setColor] = useState("columns-square initial-state-square");
+
   const changeHoverColor = (row, column) => {
-    setMarkSquare([{ row: row, column: column }]);
+    const markSquareArray = [];
+    console.log(`Hello from board ${boatSize}`);
+    markSquareArray.push({ row: row, column: column });
+    for (let index = 1; index < boatSize; index++) {
+      markSquareArray.push({ row: row, column: column + index });
+    }
+    setMarkSquare(markSquareArray);
   };
 
-  const checkIfInclude = (row, column) => {
+  const getOutFromMouseEnter = (row, column) => {
+    setMarkSquare([]);
+  };
+
+  const squareColorChanger = (row, column) => {
+    // setColor("columns-square hover-square");
     if (
-      markedSquare.some((item) => item.row === row) &&
-      markedSquare.some((item) => item.column === column)
+      markedSquare.find(
+        (element) => element.row === row && element.column === column
+      )
     ) {
       return "columns-square hover-square";
     } else {
@@ -73,9 +87,10 @@ export default function Board({
                 row={row}
                 column={column}
                 handleSquareHover={handleSquareHover}
-                color={checkIfInclude(row, column)}
+                color={squareColorChanger(row, column)}
                 changeHoverColor={changeHoverColor}
                 setColor={setColor}
+                getOutFromMouseEnter={getOutFromMouseEnter}
               />
             );
           })}

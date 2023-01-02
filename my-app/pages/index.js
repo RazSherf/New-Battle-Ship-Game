@@ -53,6 +53,7 @@ export default function Home() {
                   squareHoverd={squareHoverd}
                   gameState={gameState}
                   currentPlayer={currentPlayer1}
+                  boatSize={boatSize}
                 />
                 <Board
                   boardSize={boardSize}
@@ -60,7 +61,10 @@ export default function Home() {
                   squareHoverd={squareHoverd}
                   gameState={gameState}
                   currentPlayer={currentPlayer2}
+                  boatSize={boatSize}
                 />
+
+                <test />
               </div>
             </div>
           )}
