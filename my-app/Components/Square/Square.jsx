@@ -1,7 +1,25 @@
-import React from "react";
-export default function Square({ row, column }) {
-  const alert1 = () => {
-    alert(`The row is${row} and the coulmn is:${column}`);
-  };
-  return <div className="columns-square" onClick={alert1}></div>;
+import React, { useState } from "react";
+export default function Square({
+  row,
+  column,
+  handleSquareHover,
+  isSquareHoverd,
+  color,
+  changeHoverColor,
+  setColor,
+  getOutFromMouseEnter,
+}) {
+  return (
+    <div
+      className={color}
+      onMouseEnter={() => {
+        changeHoverColor(row, column);
+      }}
+      onMouseLeave={() => {
+        getOutFromMouseEnter();
+      }}
+    >
+      <p></p>
+    </div>
+  );
 }
