@@ -38,6 +38,8 @@ a {
   display: flex;
   padding-left: 17px;
   padding-right: 100px;
+  margin-right: 10px;
+
 }
 
 .columns-number {
@@ -53,6 +55,7 @@ a {
   height: 50px;
   display: flex;
   align-items:center;
+  margin-right: 10px;
 }
 
 .columns-square {
