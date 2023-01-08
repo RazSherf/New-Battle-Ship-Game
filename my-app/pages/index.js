@@ -13,14 +13,12 @@ export default function Home() {
   const [boatSize, setBoazSize] = useState();
   const [squareHoverd, setSquareHoverd] = useState([]);
   const [isHorizontal, setIsHorizontal] = useState(true);
-  const [firstPlayerShipList, setFirstPlayerShipList] = useState({
-    firstBattleShip: [],
-    seconedBattleShip: [],
-    thirdBattleShip: [],
-  });
-
   let currentPlayer1 = "Raz";
   let currentPlayer2 = "Computer";
+
+  // first player board that the ships will be saved
+
+  const [firstPlayerBoard, setFirstPlayerBoard] = useState([]);
 
   // Saving the board size in the state
   const onBoardSizeClick = (boardSize) => {
@@ -63,8 +61,6 @@ export default function Home() {
                   currentPlayer={currentPlayer1}
                   boatSize={boatSize}
                   isHorizontal={isHorizontal}
-                  firstPlayerShipList={firstPlayerShipList}
-                  setFirstPlayerShipList={setFirstPlayerShipList}
                 />
                 <Board
                   boardSize={boardSize}

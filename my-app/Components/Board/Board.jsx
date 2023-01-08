@@ -11,15 +11,14 @@ export default function Board({
   currentPlayer,
   boatSize,
   isHorizontal,
-  firstPlayerShipList,
-  setFirstPlayerShipList,
 }) {
   let column = [];
   let rows = [];
   let size = boardSize;
 
   const [markedSquare, setMarkSquare] = useState([]);
-
+  const [firstBoardPlacementCounter, setFirstBoardPlacementCounter] =
+    useState(0);
   useEffect(() => {
     console.log(markedSquare);
   }, [markedSquare]);
@@ -28,26 +27,33 @@ export default function Board({
     console.log(arr);
   }, arr);
 
-  console.log(boardSize);
   const [arr, setArr] = useState([]);
 
   // delete later
 
   const placeTry = (row, column) => {
     const clickSquareArray = [];
-    if (isHorizontal) {
-      console.log(column, row, boatSize);
-      if (Number(column) + Number(boatSize) > Number(boardSize)) {
-        return;
-      }
-      clickSquareArray.push({ row, column });
-      for (let i = 1; i < boatSize; i++) {
-        clickSquareArray.push({ row: row, column: column + i });
-      }
-    } else {
-      clickSquareArray.push({ row, column });
-      for (let i = 1; i < boatSize; i++) {
-        clickSquareArray.push({ row: row + i, column: column });
+    if (firstBoardPlacementCounter < Number(boatSize)) {
+      if (isHorizontal) {
+        if (Number(column) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquareArray.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquareArray.push({ row: row, column: column + i });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
+      } else {
+        if (Number(row) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquareArray.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquareArray.push({ row: row + i, column: column });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
       }
     }
     setArr((prevValue) => [...prevValue, ...clickSquareArray]);
