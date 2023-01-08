@@ -37,15 +37,21 @@ a {
 .columns-number-container {
   display: flex;
   padding-left: 17px;
-  padding-right: 100px;
+  padding-right: 90px;
+  margin-left: 14px;
+
+  
 }
 
 .columns-number {
   width: 50px;
+  
+  
 }
 
 .row-letter-container {
   display: flex;
+
 }
 
 .row-letter {
@@ -53,6 +59,7 @@ a {
   height: 50px;
   display: flex;
   align-items:center;
+  margin-right: 11px;
 }
 
 .columns-square {
@@ -68,6 +75,16 @@ a {
 
 .hover-square {
   background-color: rgb(25, 197, 102);
+}
+
+
+.clicked-square {
+  background-color: rgb(4, 4, 4);
+}
+
+
+.clicked-square{
+  background-color: rgba(207, 51, 212, 0.49);
 }
 
 .main{
