@@ -16,6 +16,10 @@ export default function Home() {
   let currentPlayer1 = "Raz";
   let currentPlayer2 = "Computer";
 
+  // first player board that the ships will be saved
+
+  const [firstPlayerBoard, setFirstPlayerBoard] = useState([]);
+
   // Saving the board size in the state
   const onBoardSizeClick = (boardSize) => {
     console.log("The Selected Size is:", boardSize);

@@ -17,20 +17,52 @@ export default function Board({
   let size = boardSize;
 
   const [markedSquare, setMarkSquare] = useState([]);
-
+  const [firstBoardPlacementCounter, setFirstBoardPlacementCounter] =
+    useState(0);
   useEffect(() => {
     console.log(markedSquare);
   }, [markedSquare]);
 
-  // const [arr, setArr] = useState(
-  //   new Array(boardSize).fill(new Array(boardSize).fill(0))
-  // );
+  useEffect(() => {
+    console.log(arr);
+  }, arr);
+
+  const [arr, setArr] = useState([]);
+
+  // delete later
+
+  const placeTry = (row, column) => {
+    const clickSquareArray = [];
+    if (firstBoardPlacementCounter < Number(boatSize)) {
+      if (isHorizontal) {
+        if (Number(column) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquareArray.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquareArray.push({ row: row, column: column + i });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
+      } else {
+        if (Number(row) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquareArray.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquareArray.push({ row: row + i, column: column });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
+      }
+    }
+    setArr((prevValue) => [...prevValue, ...clickSquareArray]);
+  };
+
   const [color, setColor] = useState("columns-square initial-state-square");
 
   const changeHoverColor = (row, column) => {
     const markSquareArray = [];
-    console.log(`hello from board${isHorizontal}`);
-    console.log(`Hello from board ${boatSize}`);
     if (isHorizontal) {
       markSquareArray.push({ row: row, column: column });
       for (let index = 1; index < boatSize; index++) {
@@ -50,7 +82,12 @@ export default function Board({
   };
 
   const squareColorChanger = (row, column) => {
-    // setColor("columns-square hover-square");
+    if (
+      arr.find((element) => element.row === row && element.column === column)
+    ) {
+      return "columns-square clicked-square";
+    }
+
     if (
       markedSquare.find(
         (element) => element.row === row && element.column === column
@@ -100,6 +137,7 @@ export default function Board({
                 changeHoverColor={changeHoverColor}
                 setColor={setColor}
                 getOutFromMouseEnter={getOutFromMouseEnter}
+                placeTry={placeTry}
               />
             );
           })}
