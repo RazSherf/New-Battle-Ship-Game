@@ -17,7 +17,8 @@ export default function Home() {
   let currentPlayer2 = "Computer";
 
   // first player board that the ships will be saved
-
+  const [firstBoardPlacementCounter, setFirstBoardPlacementCounter] =
+    useState(0);
   const [firstPlayerBoard, setFirstPlayerBoard] = useState([]);
 
   // Saving the board size in the state
@@ -26,8 +27,42 @@ export default function Home() {
     setBoardSize(boardSize);
   };
 
+  useEffect(() => {
+    console.log(firstPlayerBoard);
+  }, [firstPlayerBoard]);
+
+  const placeFirstPlayerShips = (row, column) => {
+    const clickSquarefirstPlayerBoarday = [];
+    if (firstBoardPlacementCounter < Number(boatSize)) {
+      if (isHorizontal) {
+        if (Number(column) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquarefirstPlayerBoarday.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquarefirstPlayerBoarday.push({ row: row, column: column + i });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
+      } else {
+        if (Number(row) + Number(boatSize) > Number(boardSize) + 1) {
+          alert("You Cant Place Here ");
+          return;
+        }
+        clickSquarefirstPlayerBoarday.push({ row, column });
+        for (let i = 1; i < boatSize; i++) {
+          clickSquarefirstPlayerBoarday.push({ row: row + i, column: column });
+          setFirstBoardPlacementCounter(firstBoardPlacementCounter + 1);
+        }
+      }
+    }
+    setFirstPlayerBoard((prevValue) => {
+      return [...prevValue, ...clickSquarefirstPlayerBoarday];
+    });
+  };
+
   const handleSquareHover = (row, column) => {
-    console.log([{ row: row, columm: column }]);
+    // console.log([{ row: row, columm: column }]);
     setSquareHoverd([{ row: row, columm: column }]);
   };
   // Saving in the state the boat size
@@ -61,15 +96,17 @@ export default function Home() {
                   currentPlayer={currentPlayer1}
                   boatSize={boatSize}
                   isHorizontal={isHorizontal}
+                  firstPlayerBoard={firstPlayerBoard}
+                  placeFirstPlayerShips={placeFirstPlayerShips}
                 />
-                <Board
+                {/* <Board
                   boardSize={boardSize}
                   handleSquareHover={handleSquareHover}
                   squareHoverd={squareHoverd}
                   currentPlayer={currentPlayer2}
                   boatSize={boatSize}
                   isHorizontal={isHorizontal}
-                />
+                /> */}
 
                 <test />
               </div>

@@ -8,7 +8,7 @@ export default function Square({
   changeHoverColor,
   setColor,
   getOutFromMouseEnter,
-  placeTry,
+  placeFirstPlayerShips,
 }) {
   return (
     <div
@@ -19,7 +19,7 @@ export default function Square({
       onMouseLeave={() => {
         getOutFromMouseEnter();
       }}
-      onClick={() => placeTry(row, column)}
+      onClick={() => placeFirstPlayerShips(row, column)}
     >
       <p></p>
     </div>
